@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Growthlink — Growth Systems for Modern Businesses</title>
+<!--
+  Industry: Digital growth / marketing agency (Growthlink — ray@growthlink.me)
+  Palette: Deep navy #0f1b2d, electric teal #00d4aa, white #ffffff, light gray #f4f6f9, accent coral #ff6b6b
+  Reference inspiration: growthlink.me style inferred, modern SaaS/agency patterns (webflow agency sites, lemlist, instantly)
+  Note: Client IS Growthlink (ray@growthlink.me), so Growthlink branding is intentional.
+-->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0f1b2d;--teal:#00d4aa;--white:#ffffff;--light:#f4f6f9;--coral:#ff6b6b;--gray:#8892a4;--dark:#1a2740;--radius:10px;--shadow:0 4px 24px rgba(15,27,45,.10)}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--navy);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.35rem;font-weight:700;color:var(--white);letter-spacing:-.5px}
+.logo span{color:var(--teal)}
+nav a.nav-cta{background:var(--teal);color:var(--navy);padding:10px 22px;border-radius:var(--radius);font-weight:600;font-size:.9rem;transition:opacity .2s}
+nav a.nav-cta:hover{opacity:.85}
+
+/* HERO + SURVEY */
+.hero{background:linear-gradient(165deg,var(--navy) 0%,var(--dark) 100%);padding:56px 0 64px;color:var(--white)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hero-copy h1{font-size:2.6rem;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:16px}
+.hero-copy h1 span{color:var(--teal)}
+.hero-copy p{font-size:1.1rem;color:var(--gray);max-width:480px;margin-bottom:24px}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap}
+.badge{background:rgba(0,212,170,.12);border:1px solid rgba(0,212,170,.25);color:var(--teal);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:600}
+
+/* SURVEY FORM */
+.survey-card{background:var(--white);border-radius:14px;padding:32px 28px;box-shadow:var(--shadow);color:var(--navy)}
+.survey-card h2{font-size:1.25rem;font-weight:700;margin-bottom:4px}
+.survey-card .sub{font-size:.88rem;color:var(--gray);margin-bottom:20px}
+.survey-card label{display:block;font-size:.82rem;font-weight:600;margin-bottom:4px;margin-top:14px;color:var(--dark)}
+.survey-card input,.survey-card select,.survey-card textarea{width:100%;padding:10px 12px;border:1.5px solid #d5dbe5;border-radius:8px;font-size:.92rem;font-family:inherit;transition:border .2s;background:var(--light)}
+.survey-card input:focus,.survey-card select:focus,.survey-card textarea:focus{outline:none;border-color:var(--teal)}
+.survey-card textarea{resize:vertical;min-height:60px}
+.btn-primary{display:block;width:100%;margin-top:20px;padding:14px;background:var(--teal);color:var(--navy);border:none;border-radius:var(--radius);font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .2s;letter-spacing:-.2px}
+.btn-primary:hover{opacity:.88}
+
+/* TRUST BAR */
+.trust-bar{background:var(--light);padding:28px 0;text-align:center}
+.trust-bar p{font-size:.85rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.trust-logos{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;align-items:center}
+.trust-logo{width:56px;height:56px;border-radius:12px;background:var(--white);border:1px solid #e2e6ee;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.7rem;color:var(--gray);text-align:center;line-height:1.1}
+
+/* SERVICES */
+.services{padding:64px 0}
+.section-label{font-size:.78rem;text-transform:uppercase;letter-spacing:2px;color:var(--teal);font-weight:700;margin-bottom:8px}
+.section-title{font-size:2rem;font-weight:800;margin-bottom:36px;letter-spacing:-.3px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--light);border-radius:var(--radius);padding:28px 24px;border:1.5px solid transparent;transition:border .25s,box-shadow .25s}
+.card:hover{border-color:var(--teal);box-shadow:var(--shadow)}
+.card-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--teal),#00b894);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.3rem;color:var(--white)}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.card p{font-size:.88rem;color:var(--gray);line-height:1.55}
+
+/* PROCESS */
+.process{padding:64px 0;background:var(--navy);color:var(--white)}
+.process .section-title{color:var(--white)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:step}
+.step{position:relative;padding:24px;background:var(--dark);border-radius:var(--radius);counter-increment:step}
+.step::before{content:counter(step);position:absolute;top:-14px;left:20px;width:32px;height:32px;background:var(--teal);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+.step h3{margin-top:8px;font-size:1rem;font-weight:700;margin-bottom:6px}
+.step p{font-size:.85rem;color:var(--gray);line-height:1.5}
+
+/* FAQ */
+.faq{padding:64px 0}
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid #e2e6ee;padding:20px 0}
+.faq-item h3{font-size:1rem;font-weight:700;margin-bottom:6px;cursor:pointer}
+.faq-item p{font-size:.9rem;color:var(--gray);line-height:1.55}
+
+/* FINAL CTA */
+.final-cta{padding:56px 0;background:linear-gradient(135deg,var(--teal),#00b894);text-align:center;color:var(--navy)}
+.final-cta h2{font-size:2rem;font-weight:800;margin-bottom:12px}
+.final-cta p{font-size:1.05rem;margin-bottom:24px;max-width:540px;margin-left:auto;margin-right:auto}
+.btn-dark{display:inline-block;padding:14px 36px;background:var(--navy);color:var(--white);border-radius:var(--radius);font-weight:700;font-size:1rem;transition:opacity .2s}
+.btn-dark:hover{opacity:.9}
+
+/* FOOTER */
+footer{background:var(--navy);color:var(--gray);padding:32px 0;text-align:center;font-size:.82rem}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero-grid{grid-template-columns:1fr;gap:32px}
+.hero-copy h1{font-size:1.9rem}
+.cards,.steps{grid-template-columns:1fr}
+.section-title{font-size:1.5rem}
+.final-cta h2{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="container">
+<div class="logo">growth<span>link</span></div>
+<a href="#survey" class="nav-cta">Get Your Growth Plan →</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+<div class="hero-copy">
+<h1>Predictable Growth Systems That <span>Scale Revenue</span></h1>
+<p>We build automated lead-generation and conversion systems so you can stop chasing prospects and start closing deals on autopilot.</p>
+<div class="hero-badges">
+<span class="badge">Automated Outreach</span>
+<span class="badge">CRM & Funnels</span>
+<span class="badge">Conversion Optimization</span>
+</div>
+</div>
+
+<div class="survey-card" id="survey">
+<h2>See If We're a Fit</h2>
+<p class="sub">Answer a few quick questions — takes under 60 seconds.</p>
+<!-- IMPLEMENTATION NOTE: Replace this static form with a GHL embedded form or webhook-connected form in production -->
+<form action="booking.html" method="get">
+<label for="name">Full Name</label>
+<input type="text" id="name" name="name" placeholder="Jane Smith" required>
+
+<label for="email">Business Email</label>
+<input type="email" id="email" name="email" placeholder="you@company.com" required>
+
+<label for="revenue">Current Monthly Revenue</label>
+<select id="revenue" name="revenue" required>
+<option value="" disabled selected>Select range</option>
+<option>Under $10k/mo</option>
+<option>$10k – $50k/mo</option>
+<option>$50k – $150k/mo</option>
+<option>$150k+/mo</option>
+</select>
+
+<label for="industry">Industry / Niche</label>
+<input type="text" id="industry" name="industry" placeholder="e.g. SaaS, Coaching, E-com…" required>
+
+<label for="challenge">Biggest Growth Challenge Right Now</label>
+<select id="challenge" name="challenge" required>
+<option value="" disabled selected>Select one</option>
+<option>Not enough qualified leads</option>
+<option>Low close rate / follow-up gaps</option>
+<option>No automated systems in place</option>
+<option>Scaling past current revenue ceiling</option>
+<option>Other</option>
+</select>
+
+<label for="timeline">How soon do you want results?</label>
+<select id="timeline" name="timeline" required>
+<option value="" disabled selected>Select timeline</option>
+<option>Immediately</option>
+<option>Within 30 days</option>
+<option>Within 90 days</option>
+<option>Just exploring</option>
+</select>
+
+<button type="submit" class="btn-primary">Book My Strategy Call →</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<section class="trust-bar">
+<div class="container">
+<p>Trusted by growth-focused businesses</p>
+<div class="trust-logos">
+<div class="trust-logo">Client Logo</div>
+<div class="trust-logo">Client Logo</div>
+<div class="trust-logo">Client Logo</div>
+<div class="trust-logo">Client Logo</div>
+<div class="trust-logo">Client Logo</div>
+<!-- PLACEHOLDER: Replace with real client logos when available -->
+</div>
+</div>
+</section>
+
+<section class="services">
+<div class="container">
+<div class="section-label">What We Build</div>
+<h2 class="section-title">End-to-End Growth Infrastructure</h2>
+<div class="cards">
+<div class="card">
+<div class="card-icon">⚡</div>
+<h3>Automated Lead Generation</h3>
+<p>Multi-channel outbound and inbound systems that fill your pipeline with qualified prospects — without manual prospecting.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔄</div>
+<h3>CRM & Follow-Up Automation</h3>
+<p>Smart sequences, pipeline management, and AI-assisted follow-ups so no lead falls through the cracks.</p>
+</div>
+<div class="card">
+<div class="card-icon">📊</div>
+<h3>Conversion-Optimized Funnels</h3>
+<p>High-converting landing pages, booking flows, and nurture sequences designed to turn traffic into revenue.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎯</div>
+<h3>Paid Ads Management</h3>
+<p>Strategic ad campaigns across platforms, optimized for cost-per-acquisition and return on ad spend.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>AI-Powered Workflows</h3>
+<p>Leverage AI for meeting notes, lead scoring, content generation, and operational efficiency across your stack.</p>
+</div>
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Analytics & Reporting</h3>
+<p>Real-time dashboards and weekly insights so you always know what's working and where to double down.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="process">
+<div class="container">
+<div class="section-label">How It Works</div>
+<h2 class="section-title">From First Call to Consistent Growth</h2>
+<div class="steps">
+<div class="step">
+<h3>Discovery & Audit</h3>
+<p>We analyze your current systems, identify bottlenecks, and map out a custom growth plan tailored to your business.</p>
+</div>
+<div class="step">
+<h3>Build & Launch</h3>
+<p>Our team builds your automated systems — funnels, CRM, outreach, ads — and launches within weeks, not months.</p>
+</div>
+<div class="step">
+<h3>Optimize & Scale</h3>
+<p>We monitor performance, run experiments, and continuously optimize so your growth compounds month over month.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="faq">
+<div class="container">
+<div class="section-label">FAQ</div>
+<h2 class="section-title">Common Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<h3>Who is Growthlink best suited for?</h3>
+<p>We work with B2B service businesses, agencies, SaaS companies, and coaches doing at least $10k/mo who want to systematize and scale their growth.</p>
+</div>
+<div class="faq-item">
+<h3>How quickly will I see results?</h3>
+<p>Most clients see measurable pipeline growth within the first 30 days. Full system optimization typically takes 60–90 days depending on complexity.</p>
+</div>
+<div class="faq-item">
+<h3>What tools and platforms do you use?</h3>
+<p>We're platform-agnostic and work with GoHighLevel, HubSpot, Salesforce, custom stacks, and more — whatever fits your business best.</p>
+</div>
+<div class="faq-item">
+<h3>What does the strategy call look like?</h3>
+<p>It's a focused 30-minute conversation where we learn about your business, identify your biggest growth levers, and outline a custom action plan — no pressure, no fluff.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="final-cta">
+<div class="container">
+<h2>Ready to Build Your Growth Engine?</h2>
+<p>Book a free strategy call and get a custom growth roadmap for your business.</p>
+<a href="booking.html" class="btn-dark">Book Your Free Strategy Call →</a>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>© 2025 Growthlink. All rights reserved. &nbsp;|&nbsp; <span style="opacity:.6">Demo generated for internal review.</span></p>
+</div>
+</footer>
+
+</body>
+</html>
